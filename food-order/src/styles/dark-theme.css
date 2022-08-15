@@ -1,2 +1,77 @@
 @import '~antd/dist/antd.css';
 @import '~antd/dist/antd.dark.css';
+
+.card-container .type-card .type-link {
+    color: white;
+}
+
+.cartBtn {
+    background-color: black;
+    color: white;
+}
+
+.cartBtn:hover {
+    background-color: #1b1b1b;
+    border: none
+}
+
+.cartBtn:focus {
+    background-color: black;
+    color: white;
+    border: none;
+}
+
+.orderBtn {
+    background-color: red;
+    color: white;
+}
+
+.orderBtn:hover {
+    background-color: #b3000c;
+    color: white;
+}
+
+.orderBtn:focus {
+    background-color: red;
+    color: white;
+    border: none;
+}
+
+.minusBtn:focus, .plusBtn:focus {
+    color: white;
+}
+
+.trash-icon {
+    background: none;
+    border: none;
+}
+
+.trash-icon:hover {
+    color: red;
+    background: none;
+    border: none;
+}
+
+.shopping-cart .payBtn:hover {
+    background-color: #d46b08;
+}
+
+.shopping-cart .payBtn:focus {
+    background-color: #fa8c16;
+    color: white;
+}
+
+.btn-div .payBtn:hover{
+    background-color: #205bb3;
+    color: white;
+}
+
+.btn-div .payBtn:focus {
+    color: white;
+    background-color: rgb(6, 75, 179);
+}
+
+.btn-div .cancelBtn:hover {
+    background-color: rgb(158, 15, 15);
+    color: white;
+}

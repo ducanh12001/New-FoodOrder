@@ -1,25 +1,31 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import './style.css'
+import { Switch } from 'antd'
 import { Link, Outlet } from 'react-router-dom';
 import { ShoppingCartOutlined } from '@ant-design/icons';
+import { useTheme } from '../../theme/use-theme'
 
 function SharedLayout() {
+  const [isDarkMode, setIsDarkMode] = useTheme()
   return (
     <div>
       <header>
-        <div class="left_area">
+        <div className="left_area">
           <Link to="/" className="logo">FoodOrder</Link>
         </div>
-        <div class="right_area">
-          <div class="item">
-            <Link to="" className="a-tag">
+        <div className="right_area">
+          <div className="item">
+            <Switch checked={isDarkMode} onChange={setIsDarkMode} checkedChildren="Light" unCheckedChildren="Dark" defaultChecked />
+          </div>
+          <div className="item">
+            <Link to="/cart" className="a-tag">
               <ShoppingCartOutlined className="cart-icon" />
-              <div class="dish-num">
-                <span class="num">0</span>
+              <div className="dish-num">
+                <span className="num">0</span>
               </div>
             </Link>
           </div>
-          <div class="item">
+          <div className="item">
             <Link to="/manage" className="a-tag">Manage</Link>
           </div>
         </div>

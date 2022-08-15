@@ -2,9 +2,9 @@
 
 header {
     background-color: #d7dbe7;
-    padding: 20px;
+    padding: 1.25rem;
     width: 100%;
-    height: 60px;
+    height: 3.75rem;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -14,22 +14,22 @@ header {
 .left_area .logo {
     text-decoration: none;
     color: black;
-    font-size: 22px;
+    font-size: 1.375rem;
     font-weight: 900;
 }   
 
 .left_area .logo:hover {
     color: blue;
-    font-size: 24px;
+    font-size: 1.5rem;
 }
 
 .right_area {
     display: flex;
-    font-size: 18px;
+    font-size: 1.125rem;
 }
 
 .right_area .item {
-    margin-left: 20px;
+    margin-left: 1.25rem;
 }
 
 .right_area .item .a-tag {
@@ -42,7 +42,7 @@ header {
 }
 
 .right_area .cart-icon {
-    font-size: 20px;
+    font-size: 1.25rem;
 }
 
 .right_area .item .a-tag .dish-num {
@@ -65,11 +65,331 @@ header {
 }
 
 .content {
-    padding: 30px;
+    padding: 1.875rem;
 }
 
 .content .title {
-    font-size: 28px;
+    font-size: 1.75rem;
     font-weight: 900;
-    margin-bottom: 20px;
+    margin-bottom: 1.25rem;
+}
+
+/*home*/
+.card-container {
+    display: grid;
+    gap: 4%;
+    grid-template-columns: repeat(3, 30.66%);
+    padding: 0 6.25rem;
+}
+
+.card-container .type-card .type-link {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: black;
+}
+
+.card-container .type-card span {
+    font-size: 1.125rem;
+    font-weight: 700;
+    margin-top: 0.625rem;
+}
+
+/*dishes*/
+.dish-container {
+    display: grid;
+    gap: 2%;
+    grid-template-columns: repeat(5, 18.4%);
+}
+
+.dish-container .card {
+    box-shadow: 0.5px 0.5px 3px 0.5px #7b7b7b;
+}
+
+.dish-container .dish-name {
+    font-size: 1rem;
+    color: #ff0099;
+    margin-top: 0.313rem;
+    text-align: center;
+}
+
+.dish-container .data {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.dish-container .data .price {
+    font-size: 1rem;
+    font-weight: bold;  
+}
+
+.cartBtn {
+    background-color: black;
+    color: white;
+}
+
+.cartBtn:hover {
+    background-color: #404040;
+    border: none
+}
+
+.cartBtn:focus {
+    background-color: black;
+    color: white;
+}
+
+.orderBtn {
+    background-color: red;
+    color: white;
+}
+
+.orderBtn:hover {
+    background-color: #b3000c;
+    border: none
+}
+
+.orderBtn:focus {
+    background-color: red;
+    color: white;
+}
+
+/*productDetails */
+.cart-container {
+    display: flex;
+    align-items: center;
+    padding: 3.125rem;
+}
+
+.info-card {
+    display: flex;
+}
+
+.info-card .name-dish {
+    font-size: 1.5rem;
+    font-weight: bold;
+    line-height: 33px;
+    margin-bottom: 0.25rem;
+}
+
+.info-card .address {
+    font-size: 0.875rem;
+    margin-bottom: 0.625rem;
+}
+
+.info-card .rating {
+    display: flex;
+    align-items: center;
+    margin-bottom: 0.625rem;
+    font-size: 0.938rem;
+}
+
+.info-card .rating .number-rating {
+    background-color: #ffc107;
+    border-radius: 0.313rem;
+    padding: 0 0.313rem;
+    margin: 0 0.313rem;
+    text-align: center;
+}
+
+.info-card .price {
+    font-size: 17px;
+    color: #959595;
+    margin-bottom: 0.625rem;
+}
+
+.info-card .cartBtn {
+    margin-right: 0.625rem;
+}
+
+.info-card .btn-group {
+    display: flex;
+    border-top: 1px solid #ebebeb;
+    padding-top: 1.25rem;
+}
+
+.comment-container {
+    padding: 1.25rem 3.125rem;
+}
+
+.more-container {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    margin-top: 1.25rem;
+}
+
+.moreBtn {
+    border: none;
+    font-size: 1.125rem;
+    border: none;
+    outline: none;
+}
+
+.moreBtn:hover {
+    color: red;
+    border: none;
+    outline: none;
+}
+
+/*cart*/
+.shopping-cart {
+    padding: 1.25rem 6.25rem;
+}
+
+.shopping-cart .title, .ship-container .title {
+    font-size: 1.25rem;
+    font-weight: bold;
+    color: red;
+    margin-bottom: 0.625rem;
+}
+
+.shopping-cart .table-container {
+    margin-top: 0.625rem;
+    margin-bottom: 1.25rem;
+}
+
+.shopping-cart .btn-container {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.shopping-cart .payBtn {
+    background-color: #fa8c16;
+    color: white;
+}
+
+.shopping-cart .payBtn:hover {
+    background-color: #d46b08;
+}
+
+.item-button {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.item-button button {
+    background: none;
+    border: none;
+    font-size: 0.938rem;
+}
+
+.item-button button:hover {
+    background: none;
+    border: none;
+}
+
+.minusBtn:focus, .plusBtn:focus {
+    color: black;
+    background: none;
+    border: none;
+}
+
+.trash-icon {
+    background: none;
+    border: none;
+    font-size: 0.938rem;
+}
+
+.trash-icon:hover {
+    color: red;
+    background: none;
+    border: none;
+}
+
+.trash-icon:focus {
+    color: black;
+}
+
+.total-text {
+    font-size: 1rem;
+    font-weight: bold;
+    text-align: right
+}
+
+/*pay*/
+.btn-div {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+}
+
+.btn-div .payBtn {
+    background-color: rgb(6, 75, 179);
+    color: white;
+    margin-left: 1.25rem;
+}
+
+.btn-div .payBtn:hover{
+    background-color: #205bb3;
+}
+
+.btn-div .cancelBtn {
+    background-color: red;
+    color: white;
+    outline: none;
+}
+
+.btn-div .cancelBtn:hover {
+    background-color: rgb(158, 15, 15);
+}
+
+.ship-container {
+    padding: 1.25rem 6.25rem;
+}
+
+.final-container {
+    text-align: center;
+    margin-top: 6.25rem
+}
+
+.final-container .final-text {
+    font-size: 1.875rem;
+    font-weight: bold;
+    color: rgb(97, 97, 97);
+    margin-bottom: 1.25rem;
+}
+
+.final-container .final-link {
+    padding: 0.313rem 0.938rem;
+    border-radius: 0.938rem;
+    background-color: rgb(19, 67, 77);
+    color: white;
+}
+
+@media (min-width: 31.25rem) {
+    .card-container {
+        gap: 3%;
+        grid-template-columns: 100%;
+        padding: 0 1.875rem;
+    }
+    .dish-container {
+        gap: 1.875rem;
+        grid-template-columns: 100%;
+        padding: 0 1.875rem;
+    }
+}
+
+@media (min-width: 481px) {
+    .card-container {
+        gap: 8%;
+        grid-template-columns: repeat(2, 46%);
+        padding: 0 3.125rem;
+    }
+    .dish-container {
+        gap: 40px;
+        grid-template-columns: repeat(2, 46%);
+    }
+}
+
+@media (min-width: 769px) {
+    .card-container {
+        gap: 4%;
+        grid-template-columns: repeat(3, 30.66%);
+    }
+    .dish-container {
+        gap: 2%;
+        grid-template-columns: repeat(5, 18.4%);
+    }
 }

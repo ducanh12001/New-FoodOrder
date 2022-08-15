@@ -1,6 +1,11 @@
 import { Link, Route, Routes } from 'react-router-dom';
 import './App.css';
+import Cart from './pages/HomePage/Cart';
+import Detail from './pages/HomePage/Detail';
+import Final from './pages/HomePage/Final';
 import Home from './pages/HomePage/Home';
+import Payment from './pages/HomePage/Payment';
+import Product from './pages/HomePage/Product';
 import SharedLayout from './pages/HomePage/SharedLayout';
 import Manage from './pages/Manage/Manage';
 
@@ -10,6 +15,11 @@ function App() {
       <Routes>
         <Route path="/" element={<SharedLayout />}>
           <Route index element={<Home />} />
+          <Route path=":typeId" element={<Product />} />
+          <Route path=":typeId/:dishId" element={<Detail />} />
+          <Route path="/cart" element={<Cart />} />
+          <Route path="/cart/pay" element={<Payment />} />
+          <Route path="/final" element={<Final />} />
           <Route path="*" element={<NoMatch />} />
         </Route>
         <Route path="manage" element={<Manage />} />

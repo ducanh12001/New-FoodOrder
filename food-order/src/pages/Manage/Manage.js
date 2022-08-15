@@ -3,7 +3,8 @@ import { Layout, Menu, Input, Button, Table, Image, Modal, Form, Upload, message
 import './manage.css'
 import { HomeOutlined, UnorderedListOutlined, PlusOutlined } from '@ant-design/icons';
 import { useNavigate } from "react-router-dom";
-import { getProductStore, addDishStore, Dish, handleFile, loadDish } from "./ManageFunction"
+import { Dish, handleFile } from "./ManageFunction"
+import { addDishStore, getProductStore } from '../HomePage/MainFunction';
 
 const { Header, Sider, Content } = Layout;
 
@@ -154,7 +155,6 @@ function Manage() {
   const handleChange2 = ({ fileList: newFileList2 }) => setFileList2(newFileList2);
 
   useEffect(() => {
-    loadDish();
     render();
   }, [])
 
