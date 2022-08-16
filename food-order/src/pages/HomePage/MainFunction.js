@@ -1,4 +1,3 @@
-import { message } from 'antd'
 const axios = require('axios');
 
 export const loadTypeDish = () => {
@@ -126,10 +125,12 @@ export function totalPrice(dish) {
     }
 }
 
-export function renderNumCart() {
+export function updateNumCart(setNumCart) {
     let numCart = localStorage.getItem('numInCart');
     if (numCart) {
-        document.querySelector('.dish-num .num').innerHTML = numCart;
+        setNumCart(numCart);
+    } else {
+        setNumCart(0)
     }
 }
 
@@ -146,11 +147,9 @@ export function getDishInCart() {
 export const updateCart = (dish) => {
     numInCart(dish)
     totalPrice(dish)
-    renderNumCart()
 }
 
 export const resetStore = () => {
-    document.querySelector('.dish-num .num').innerHTML = 0;
     localStorage.setItem('numInCart', 0);
     localStorage.setItem('totalPrice', 0);
     localStorage.removeItem('dishInCart');

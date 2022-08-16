@@ -1,12 +1,14 @@
 import React, { useEffect, useState } from 'react'
 import './style.css'
-import { Switch } from 'antd'
+import { Badge, Switch } from 'antd'
 import { Link, Outlet } from 'react-router-dom';
 import { ShoppingCartOutlined } from '@ant-design/icons';
 import { useTheme } from '../../theme/use-theme'
 
 function SharedLayout() {
+  const [numCart, setNumCart] = useState()
   const [isDarkMode, setIsDarkMode] = useTheme()
+  
   return (
     <div>
       <header>
@@ -19,18 +21,20 @@ function SharedLayout() {
           </div>
           <div className="item">
             <Link to="/cart" className="a-tag">
-              <ShoppingCartOutlined className="cart-icon" />
-              <div className="dish-num">
-                <span className="num">0</span>
-              </div>
+              <Badge size="small" count={numCart}>
+                <ShoppingCartOutlined className="cart-icon" />
+              </Badge>
             </Link>
           </div>
           <div className="item">
             <Link to="/manage" className="a-tag">Manage</Link>
           </div>
+          <div className="item">
+            <Link to="/login" className="a-tag">Login</Link>
+          </div>
         </div>
       </header>
-      <Outlet />
+      <Outlet context={[numCart, setNumCart]} />
     </div>
   )
 }

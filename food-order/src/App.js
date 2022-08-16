@@ -8,6 +8,7 @@ import Payment from './pages/HomePage/Payment';
 import Product from './pages/HomePage/Product';
 import SharedLayout from './pages/HomePage/SharedLayout';
 import Manage from './pages/Manage/Manage';
+import LoginScreen from './pages/User/LoginScreen';
 
 function App() {
   return (
@@ -15,6 +16,7 @@ function App() {
       <Routes>
         <Route path="/" element={<SharedLayout />}>
           <Route index element={<Home />} />
+          <Route path="/login" element={<LoginScreen />} />
           <Route path=":typeId" element={<Product />} />
           <Route path=":typeId/:dishId" element={<Detail />} />
           <Route path="/cart" element={<Cart />} />

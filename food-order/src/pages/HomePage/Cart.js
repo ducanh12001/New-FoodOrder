@@ -1,13 +1,14 @@
 import React, { useEffect, useState } from 'react'
 import { Button, Table, Image, message } from 'antd';
-import { getDishInCart, renderNumCart } from './MainFunction';
+import { getDishInCart, updateNumCart } from './MainFunction';
 import { DeleteOutlined, MinusCircleOutlined, PlusCircleOutlined } from '@ant-design/icons';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useOutletContext } from 'react-router-dom';
 
 function Cart() {
     let navigate = useNavigate();
     const [cart, setCart] = useState(getDishInCart())
     const [cartList, setCartList] = useState([]);
+    const [numCart, setNumCart] = useOutletContext();
 
     const columns = [
         {
@@ -82,7 +83,7 @@ function Cart() {
             })
         })
         setCartList(temp);
-        renderNumCart()
+        updateNumCart(setNumCart)
     }
 
     const minusQuantity = (dishId) => {

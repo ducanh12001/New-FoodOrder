@@ -1,16 +1,17 @@
 import React, { useEffect, useState } from 'react'
 import { Image, Card, Button, Typography, message } from 'antd'
-import { Link, useNavigate, useParams } from "react-router-dom";
-import { getProductStore, updateCart } from './MainFunction';
+import { Link, useNavigate, useOutletContext, useParams } from "react-router-dom";
+import { getProductStore, updateCart, updateNumCart } from './MainFunction';
+
 let count = 20;
 
 function Product() {
     let navigate = useNavigate();
     const [dishList, setDishList] = useState([]);
-    const [data, setData] = useState([])
     const [page, setPage] = useState(1);
     const [maxIndex, setMaxIndex] = useState();
     let { typeId } = useParams();
+    const [numCart, setNumCart] = useOutletContext();
 
     const render = () => {
         let dishes = getProductStore();
@@ -44,8 +45,9 @@ function Product() {
         let temp = dishList.filter(dish => {
             if (dish.id === dishId) {
                 updateCart(dish)
+                updateNumCart(setNumCart)
                 message.success({
-                    content: 'Thanh cong',
+                    content: 'Thêm vào giỏ hàng thành công!',
                     style: {color: 'green'}
                 })
             }
@@ -56,6 +58,7 @@ function Product() {
         let temp = dishList.filter(dish => {
             if (dish.id === dishId) {
                 updateCart(dish)
+                updateNumCart(setNumCart)
                 navigate('/cart/pay')
             }
         })
@@ -78,8 +81,8 @@ function Product() {
                             <Card
                                 cover={
                                     <Link to={`/${typeId}/${dish.id}`}>
-                                        <Image preview={false} width="100%" height={150} alt={dish.name} src={dish.imageS} />
-                                        <div className="dish-name">{dish.name}</div>
+                                        <Image preview={false} className="dish-image" width="100%" alt={dish.name} src={dish.imageS} />
+                                        <Typography.Title ellipsis={{rows:1, tooltip: dish.name}} className="dish-name">{dish.name}</Typography.Title>
                                     </Link>
                                 }
                                 actions={[

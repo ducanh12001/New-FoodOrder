@@ -6,6 +6,8 @@ import { useNavigate } from "react-router-dom";
 import { Dish, handleFile } from "./ManageFunction"
 import { addDishStore, getProductStore } from '../HomePage/MainFunction';
 
+let pageSize = 20;
+
 const { Header, Sider, Content } = Layout;
 
 const validateMessages = {
@@ -31,16 +33,16 @@ function Manage() {
       title: 'STT',
       dataIndex: 'stt',
       key: 'stt',
-      width: 60,
+      width: '5%',
       align: 'center',
-      render: (text, record, index) => (page - 1) * 10 + index + 1
+      render: (text, record, index) => (page - 1) * pageSize + index + 1
     },
     {
       title: 'Ảnh nhỏ',
       dataIndex: 'imageS',
       key: 'imageS',
-      render: (text) => <Image width={110} height={60} src={text} alt="Image" />,
-      width: 150,
+      render: (text) => <Image width='80%' height={60} src={text} alt="Image" />,
+      width: '15%',
       align: 'center',
     },
     {
@@ -48,7 +50,7 @@ function Manage() {
       dataIndex: 'name',
       key: 'name',
       render: (text, record) => <a className="dish-details" onClick={() => showDetailModal(record.key)}>{text}</a>,
-      width: 150,
+      width: '20%',
       sorter: (a, b) => {
         let fa = a.name.toLowerCase(),
           fb = b.name.toLowerCase();
@@ -66,13 +68,13 @@ function Manage() {
       dataIndex: 'descriptionS',
       key: 'descriptionS',
       ellipsis: true,
-      width: 350
+      width: '35%'
     },
     {
       title: 'Đơn giá',
       dataIndex: 'price',
       key: 'price',
-      width: 90,
+      width: '10%',
       align: 'right',
       sorter: (a, b) => a.price - b.price,
     },
@@ -80,7 +82,7 @@ function Manage() {
       title: 'Đánh giá',
       dataIndex: 'rate',
       key: 'rate',
-      width: 95,
+      width: '10%',
       align: 'center',
       sorter: (a, b) => a.rate - b.rate,
     },
@@ -204,7 +206,8 @@ function Manage() {
               pagination={{
                 onChange(current) {
                   setPage(current)
-                }
+                },
+                pageSize: pageSize
               }} />
           </div>
           <Modal
@@ -320,7 +323,7 @@ function Manage() {
                 </Upload>
               </Form.Item>
               <Form.Item wrapperCol={{ offset: 10, span: 14 }}>
-                <Button type="primary" htmlType="submit">Submit</Button>
+                <Button type="primary" htmlType="submit">Thêm</Button>
               </Form.Item>
             </Form>
           </Modal>

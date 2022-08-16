@@ -9,7 +9,7 @@ const CommentList = ({ comments }) => (
         dataSource={comments}
         header={`${comments.length} ${comments.length > 1 ? 'replies' : 'reply'}`}
         itemLayout="horizontal"
-        renderItem={(props) => <Comment {...props} />}
+        renderItem={(props) => <Comment style={{borderBottom: '1px solid #f0f0f0'}} {...props} />}
     />
 );
 
@@ -84,10 +84,10 @@ function Detail() {
             <div className="cart-container">
                 <Card
                     cover={
-                        <Image width="500px" height="300px" alt={dish.name} src={dish.imageS} />
+                        <Image width="100%" height="300px" alt={dish.name} src={dish.imageS} />
                     }
                     bordered={false}
-                    bodyStyle={{ width: '50%', marginLeft: 70 }}
+                    bodyStyle={{ width: '50%', marginLeft: '6%' }}
                     className="info-card"
                 >
                     <div className="name-dish">{dish.name}</div>

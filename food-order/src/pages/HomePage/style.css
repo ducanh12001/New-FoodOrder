@@ -8,7 +8,6 @@ header {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    box-sizing: border-box;
 }
 
 .left_area .logo {
@@ -43,6 +42,7 @@ header {
 
 .right_area .cart-icon {
     font-size: 1.25rem;
+    color: black;
 }
 
 .right_area .item .a-tag .dish-num {
@@ -52,7 +52,7 @@ header {
     width: 17px;
     height: 17px;
     top: 10px;
-    right: 92px;
+    right: 162px;
 }
 
 .right_area .item .a-tag .dish-num .num {
@@ -106,6 +106,10 @@ header {
     box-shadow: 0.5px 0.5px 3px 0.5px #7b7b7b;
 }
 
+.dish-container .dish-image {
+    height: 150px
+}
+
 .dish-container .dish-name {
     font-size: 1rem;
     color: #ff0099;
@@ -127,11 +131,13 @@ header {
 .cartBtn {
     background-color: black;
     color: white;
+    white-space: normal;
+    height: auto
 }
 
 .cartBtn:hover {
     background-color: #404040;
-    border: none
+    border: none;
 }
 
 .cartBtn:focus {
@@ -142,6 +148,8 @@ header {
 .orderBtn {
     background-color: red;
     color: white;
+    white-space: normal;
+    height: auto
 }
 
 .orderBtn:hover {
@@ -210,6 +218,7 @@ header {
 
 .comment-container {
     padding: 1.25rem 3.125rem;
+    
 }
 
 .more-container {
@@ -358,7 +367,28 @@ header {
     color: white;
 }
 
-@media (min-width: 31.25rem) {
+/*login*/
+.login-container{
+    max-width: 450px;
+    margin: 50px auto;
+}
+
+.action-btn {
+    text-align: center;
+}
+
+.login-form-button {
+    width: 100%;
+    margin-bottom: 10px;
+}
+
+.login-error {
+    color: red;
+    text-align: center;
+    display: none;
+}
+
+@media screen and (max-width: 480px) {
     .card-container {
         gap: 3%;
         grid-template-columns: 100%;
@@ -367,11 +397,11 @@ header {
     .dish-container {
         gap: 1.875rem;
         grid-template-columns: 100%;
-        padding: 0 1.875rem;
+        padding: 0 1.5rem;
     }
 }
 
-@media (min-width: 481px) {
+@media screen and (min-width: 481px) and (max-width: 864px) {
     .card-container {
         gap: 8%;
         grid-template-columns: repeat(2, 46%);
@@ -380,16 +410,10 @@ header {
     .dish-container {
         gap: 40px;
         grid-template-columns: repeat(2, 46%);
+        padding: 0 30px;
     }
 }
 
-@media (min-width: 769px) {
-    .card-container {
-        gap: 4%;
-        grid-template-columns: repeat(3, 30.66%);
-    }
-    .dish-container {
-        gap: 2%;
-        grid-template-columns: repeat(5, 18.4%);
-    }
-}
+
+/*width: min --> max
+calc(26px + 2 * ((100vw - min) / (max-min+1)))*/

@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { Button, Table, Image, Form, Input, Select, message } from 'antd';
-import { getDishInCart, renderNumCart, resetStore } from './MainFunction';
-import { useNavigate } from 'react-router-dom';
+import { getDishInCart, resetStore, updateNumCart } from './MainFunction';
+import { useNavigate, useOutletContext } from 'react-router-dom';
 
 const axios = require('axios');
 
@@ -21,6 +21,7 @@ function Payment() {
   const [citySelect, setCitySelect] = useState(false);
   const [quanSelect, setQuanSelect] = useState(false);
   const [phuongSelect, setPhuongSelect] = useState(false);
+  const [numCart, setNumCart] = useOutletContext();
 
   const columns = [
     {
@@ -73,7 +74,7 @@ function Payment() {
       })
     })
     setCartList(temp);
-    renderNumCart()
+    updateNumCart(setNumCart)
   }
 
   const handleCityChange = (newValue) => {
@@ -126,6 +127,7 @@ function Payment() {
 
   const handlePay = () => {
     resetStore()
+    updateNumCart(setNumCart)
     navigate('/final')
   }
 
@@ -144,6 +146,7 @@ function Payment() {
 
   const cancelPay = () => {
     resetStore()
+    updateNumCart(setNumCart)
     navigate('/')
   }
 
