@@ -6,9 +6,9 @@ import { useNavigate } from "react-router-dom";
 import AuthContext from '../../Auth/AuthContext';
 
 const validateMessages = {
-    required: 'Please input your ${label}!',
+    required: 'Vui lòng điền ${label}!',
     pattern: {
-        mismatch: "Invalid ${name}",
+        mismatch: "${name} không hợp lệ",
     }
 };
 

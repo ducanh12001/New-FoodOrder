@@ -11,14 +11,17 @@ const validateMessages = {
 };
 
 function Payment() {
-  let navigate = useNavigate();
+
   const [cart, setCart] = useState(getDishInCart())
   const [cartList, setCartList] = useState([]);
-  const [form] = Form.useForm();
   const [value, setValue] = useState();
   const [city, setCity] = useState([]);
   const [quan, setQuan] = useState([]);
   const [phuong, setPhuong] = useState([]);
+  const [phuongSelect, setPhuongSelect] = useState(false);
+
+  let navigate = useNavigate();
+  const [form] = Form.useForm();
   const [numCart, setNumCart] = useOutletContext();
   const [currentUser, setCurrentUser] = useContext(AuthContext)
 
@@ -79,14 +82,20 @@ function Payment() {
   const handleCityChange = (newValue) => {
     renderQuan(newValue);
     setValue(newValue);
+    setPhuongSelect(false);
+    form.setFieldsValue({ 
+      quan: 'Chọn Quận (Huyện)',
+      phuong: 'Chọn Phường (Xã)'
+    })
   }
 
   const handleQuanChange = (newValue) => {
     renderPhuong(newValue);
     setValue(newValue);
+    setPhuongSelect(true);
   }
 
-  const handleChange = (newValue) => {
+  const handlePhuongChange = (newValue) => {
     setValue(newValue);
   };
 
@@ -124,7 +133,7 @@ function Payment() {
       })
   }
 
-  const handlePay = () => {
+  const handlePay = (values) => {
     if (currentUser) {
       resetStore()
       updateNumCart(setNumCart)
@@ -132,7 +141,7 @@ function Payment() {
     } else {
       const hide = message.error({
         content: 'Bạn phải đăng nhập trước khi thanh toán',
-        style: {color:'red'}
+        style: { color: 'red' }
       }).then(() => {
         navigate('/login')
       })
@@ -247,9 +256,9 @@ function Payment() {
               }}
               placeholder="Chọn Phường (Xã)"
               value={value}
-              onChange={handleChange}
+              onChange={handlePhuongChange}
             >
-              {phuong.map(data => {
+              {phuongSelect && phuong.map(data => {
                 return (
                   <Select.Option key={data.code} value={data.code}>{data.name}</Select.Option>
                 )
@@ -268,9 +277,22 @@ function Payment() {
           >
             <Input id="address" />
           </Form.Item>
+          <Form.Item
+            name="phone"
+            label="Số điện thoại"
+            rules={[
+              {
+                required: true,
+              },
+            ]}
+            hasFeedback
+            initialValue={currentUser ? currentUser.phone : ''}
+          >
+            <Input id="phone" />
+          </Form.Item>
           <Form.Item>
             <div className="btn-div">
-              <Button className="cancelBtn" onClick={cancelPay} >Hủy</Button>
+              <Button className="cancelBtn" onClick={cancelPay}>Hủy</Button>
               <Button className="payBtn" htmlType="submit">Thanh toán</Button>
             </div>
           </Form.Item>

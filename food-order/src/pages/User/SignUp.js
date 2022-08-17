@@ -1,7 +1,9 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import { Button, Form, Input, message } from 'antd';
 import { addUserStore, getUserStore, User } from './UserFunction';
 import { nanoid } from 'nanoid'
+import { useNavigate } from 'react-router-dom';
+import AuthContext from '../../Auth/AuthContext';
 
 const validateMessages = {
   required: 'Vui lòng điền ${label}!',
@@ -31,6 +33,8 @@ const formItemLayout = {
 
 function SignUp() {
 
+  let navigate = useNavigate();
+  const [currentUser, setCurrentUser] = useContext(AuthContext)
   const [form] = Form.useForm();
 
   const onFinish = (values) => {
@@ -44,6 +48,8 @@ function SignUp() {
       })
     } else {
       addUserStore(user);
+      setCurrentUser(user);
+      navigate('/')
       form.resetFields();
     }
   };

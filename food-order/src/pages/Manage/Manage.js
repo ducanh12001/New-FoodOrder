@@ -151,6 +151,9 @@ function Manage() {
   const handleCancel = () => {
     setIsModalVisible(false);
     setIsDetailVisible(false);
+    form.resetFields();
+    setFileList([])
+    setFileList2([])
   };
 
   const handleChange = ({ fileList: newFileList }) => setFileList(newFileList);
@@ -166,7 +169,7 @@ function Manage() {
         <div className="logo">Manage</div>
       </Header>
       <Layout>
-        <Sider collapsible collapsed={collapsed} onCollapse={(value) => setCollapsed(value)}>
+        <Sider breakpoint="lg" collapsible collapsed={collapsed} onCollapse={(value) => setCollapsed(value)}>
           <Menu
             theme="dark"
             mode="inline"
@@ -322,8 +325,11 @@ function Manage() {
                   </div>}
                 </Upload>
               </Form.Item>
-              <Form.Item wrapperCol={{ offset: 10, span: 14 }}>
-                <Button type="primary" htmlType="submit">Thêm</Button>
+              <Form.Item>
+                <div style={{display: 'flex', justifyContent: 'space-around'}}>
+                  <Button onClick={handleCancel}>Cancel</Button>
+                  <Button type="primary" htmlType="submit">Thêm</Button>
+                </div>
               </Form.Item>
             </Form>
           </Modal>

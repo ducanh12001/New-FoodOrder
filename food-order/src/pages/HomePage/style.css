@@ -169,7 +169,7 @@ header {
     background-color: red;
     color: white;
     white-space: normal;
-    height: auto
+    height: auto;
 }
 
 .orderBtn:hover {
