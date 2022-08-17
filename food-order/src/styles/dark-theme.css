@@ -1,7 +1,18 @@
 @import '~antd/dist/antd.css';
 @import '~antd/dist/antd.dark.css';
 
-.card-container .type-card .type-link {
+.type-container .title {
+    border-bottom: 1px solid white; 
+}
+
+.type-container .title span {
+    background:black; 
+    padding:0 10px; 
+    font-size: 1.75rem;
+    font-weight: 900;
+}
+
+.type-container .type-link {
     color: white;
 }
 

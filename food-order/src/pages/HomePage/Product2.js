@@ -64,17 +64,10 @@ function Product2() {
     }
 
     const loadMore = page < numPages() && (
-      <div
-        style={{
-          textAlign: 'center',
-          marginTop: 12,
-          height: 32,
-          lineHeight: '32px',
-        }}
-      >
-        <Button className="moreBtn" onClick={() => onLoadMore(page)}>Loading more</Button>
-      </div>
-    ) ;
+        <div className="more-container">
+            <Button className="moreBtn" onClick={() => onLoadMore(page)}>Loading more</Button>
+        </div>
+    );
 
     useEffect(() => {
         render();
@@ -85,45 +78,47 @@ function Product2() {
             <div className="title">
                 Món ăn
             </div>
-            <List
-                grid={{
-                    gutter: 16,
-                    xs: 1,
-                    sm: 2,
-                    md: 3,
-                    lg: 4,
-                    xl: 5,
-                    xxl: 6
-                }}
-                loadMore={loadMore}
-                dataSource={dishList}
-                renderItem={(dish, index) => {
-                    return (index >= 0 && index < maxIndex &&
-                        <List.Item>
-                            <Card
-                                cover={
-                                    <Link to={`/${typeId}/${dish.id}`}>
-                                        <Image preview={false} className="dish-image" width="100%" alt={dish.name} src={dish.imageS} />
-                                        <Typography.Title ellipsis={{ rows: 1, tooltip: dish.name }} className="dish-name">{dish.name}</Typography.Title>
-                                    </Link>
-                                }
-                                actions={[
-                                    <Button className="cartBtn" onClick={() => handleAddToCart(dish.id)}>Add to cart</Button>,
-                                    <Button className="orderBtn" onClick={() => handleOrder(dish.id)}>Order Now</Button>
-                                ]}
-                                className="card"
-                                bodyStyle={{ height: '100px', marginTop: -20 }}
-                            >
-                                <div className="data">
-                                    <div className="price">{dish.price}đ</div>
-                                    <div className="rate">{dish.rate}/5</div>
-                                </div>
-                                <Typography.Paragraph ellipsis={{ rows: 2, tooltip: dish.descriptionS }} className="description">{dish.descriptionS}</Typography.Paragraph>
-                            </Card>
-                        </List.Item>
-                    )
-                }}
-            />
+            <div className="dish-container">
+                <List
+                    grid={{
+                        gutter: 20,
+                        xs: 1,
+                        sm: 2,
+                        md: 2,
+                        lg: 4,
+                        xl: 5,
+                        xxl: 6
+                    }}
+                    loadMore={loadMore}
+                    dataSource={dishList}
+                    renderItem={(dish, index) => {
+                        return (index >= 0 && index < maxIndex &&
+                            <List.Item>
+                                <Card
+                                    cover={
+                                        <Link to={`/${typeId}/${dish.id}`}>
+                                            <Image preview={false} className="dish-image" width="100%" alt={dish.name} src={dish.imageS} />
+                                            <Typography.Title ellipsis={{ rows: 1, tooltip: dish.name }} className="dish-name">{dish.name}</Typography.Title>
+                                        </Link>
+                                    }
+                                    actions={[
+                                        <Button className="cartBtn" onClick={() => handleAddToCart(dish.id)}>Add to cart</Button>,
+                                        <Button className="orderBtn" onClick={() => handleOrder(dish.id)}>Order Now</Button>
+                                    ]}
+                                    className="card"
+                                    bodyStyle={{ height: '100px', marginTop: -20 }}
+                                >
+                                    <div className="data">
+                                        <div className="price">{dish.price}đ</div>
+                                        <div className="rate">{dish.rate}/5</div>
+                                    </div>
+                                    <Typography.Paragraph ellipsis={{ rows: 2, tooltip: dish.descriptionS }} className="description">{dish.descriptionS}</Typography.Paragraph>
+                                </Card>
+                            </List.Item>
+                        )
+                    }}
+                />
+            </div>
         </div>
     )
 }

@@ -95,21 +95,38 @@ header {
 }
 
 /*home*/
-.card-container {
-    display: grid;
-    gap: 4%;
-    grid-template-columns: repeat(3, 30.66%);
-    padding: 0 6.25rem;
+.type-container {
+    padding: 2rem 6.25rem 0 6.25rem;
 }
 
-.card-container .type-card .type-link {
+.type-container .title {
+    width: 100%; 
+    text-align: center; 
+    border-bottom: 1px solid #000; 
+    line-height: 0.1em;
+    margin-bottom: 2.25rem;
+}
+
+.type-container .title span {
+    background:#fff; 
+    padding:0 10px; 
+    font-size: 1.75rem;
+    font-weight: 900;
+}
+
+.type-container .type-link {
     display: flex;
     flex-direction: column;
     align-items: center;
     color: black;
 }
 
-.card-container .type-card span {
+.type-container .type-image {
+    height: 200px;
+    object-fit: cover;
+}
+
+.type-container span {
     font-size: 1.125rem;
     font-weight: 700;
     margin-top: 0.625rem;
@@ -117,9 +134,7 @@ header {
 
 /*dishes*/
 .dish-container {
-    display: grid;
-    gap: 2%;
-    grid-template-columns: repeat(5, 18.4%);
+    margin: 0 1.25rem;
 }
 
 .dish-container .card {
@@ -127,7 +142,8 @@ header {
 }
 
 .dish-container .dish-image {
-    height: 150px
+    height: 150px;
+    object-fit: cover;
 }
 
 .dish-container .dish-name {
@@ -151,8 +167,6 @@ header {
 .cartBtn {
     background-color: black;
     color: white;
-    white-space: normal;
-    height: auto
 }
 
 .cartBtn:hover {
@@ -168,8 +182,6 @@ header {
 .orderBtn {
     background-color: red;
     color: white;
-    white-space: normal;
-    height: auto;
 }
 
 .orderBtn:hover {
@@ -242,10 +254,10 @@ header {
 }
 
 .more-container {
-    display: flex;
-    align-items: center;
-    justify-content: flex-end;
-    margin-top: 1.25rem;
+    text-align: center;
+    height: 32;
+    line-height: 32px;
+    margin-top: 0.75rem;
 }
 
 .moreBtn {
@@ -393,11 +405,6 @@ header {
         grid-template-columns: 100%;
         padding: 0 1.875rem;
     }
-    .dish-container {
-        gap: 1.875rem;
-        grid-template-columns: 100%;
-        padding: 0 1.5rem;
-    }
 }
 
 @media screen and (min-width: 481px) and (max-width: 864px) {
@@ -405,11 +412,6 @@ header {
         gap: 8%;
         grid-template-columns: repeat(2, 46%);
         padding: 0 3.125rem;
-    }
-    .dish-container {
-        gap: 40px;
-        grid-template-columns: repeat(2, 46%);
-        padding: 0 30px;
     }
 }
 
