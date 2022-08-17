@@ -1,7 +1,8 @@
-import React, { useEffect, useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import { Button, Table, Image, Form, Input, Select, message } from 'antd';
 import { getDishInCart, resetStore, updateNumCart } from './MainFunction';
 import { useNavigate, useOutletContext } from 'react-router-dom';
+import AuthContext from '../../Auth/AuthContext';
 
 const axios = require('axios');
 
@@ -18,10 +19,8 @@ function Payment() {
   const [city, setCity] = useState([]);
   const [quan, setQuan] = useState([]);
   const [phuong, setPhuong] = useState([]);
-  const [citySelect, setCitySelect] = useState(false);
-  const [quanSelect, setQuanSelect] = useState(false);
-  const [phuongSelect, setPhuongSelect] = useState(false);
   const [numCart, setNumCart] = useOutletContext();
+  const [currentUser, setCurrentUser] = useContext(AuthContext)
 
   const columns = [
     {
@@ -126,9 +125,18 @@ function Payment() {
   }
 
   const handlePay = () => {
-    resetStore()
-    updateNumCart(setNumCart)
-    navigate('/final')
+    if (currentUser) {
+      resetStore()
+      updateNumCart(setNumCart)
+      navigate('/final')
+    } else {
+      const hide = message.error({
+        content: 'Bạn phải đăng nhập trước khi thanh toán',
+        style: {color:'red'}
+      }).then(() => {
+        navigate('/login')
+      })
+    }
   }
 
   const showTotalPrice = (pageData) => {

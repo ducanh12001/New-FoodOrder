@@ -1,7 +1,9 @@
-import React, { useEffect, useState } from 'react'
-import { Button, Checkbox, Form, Input, Tabs } from 'antd';
+import React, { useContext } from 'react'
+import { Button, Checkbox, Form, Input } from 'antd';
 import { LockOutlined, UserOutlined } from '@ant-design/icons';
 import { getUserStore } from './UserFunction';
+import { useNavigate } from "react-router-dom";
+import AuthContext from '../../Auth/AuthContext';
 
 const validateMessages = {
     required: 'Please input your ${label}!',
@@ -12,7 +14,8 @@ const validateMessages = {
 
 function Login() {
 
-    const [currentUser, setCurrentUser] = useState()
+    let navigate = useNavigate();
+    const [currentUser, setCurrentUser] = useContext(AuthContext)
 
     const onFinish = (values) => {
         let users = getUserStore()
@@ -22,6 +25,7 @@ function Login() {
         } else {
             setCurrentUser(temp[0])
             document.querySelector('.login-error').style.display = 'none'
+            navigate('/')
         }
     };
 

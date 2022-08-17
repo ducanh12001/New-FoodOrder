@@ -18,10 +18,7 @@ function Home() {
   }, [])
 
   return (
-    <div className="content">
-      <div className="title">
-        Món ăn
-      </div>
+    <div className="content-container">
       <div className="card-container">
         {
           data.map(type => {

@@ -33,7 +33,7 @@ function Manage() {
       title: 'STT',
       dataIndex: 'stt',
       key: 'stt',
-      width: '5%',
+      width: '6%',
       align: 'center',
       render: (text, record, index) => (page - 1) * pageSize + index + 1
     },

@@ -1,10 +1,10 @@
-import React, { useEffect, useState } from 'react'
+import React from 'react'
 import { Button, Form, Input, message } from 'antd';
-import { addUserStore, getUserStore, setUserStore, User } from './UserFunction';
+import { addUserStore, getUserStore, User } from './UserFunction';
 import { nanoid } from 'nanoid'
 
 const validateMessages = {
-  required: 'Please input your ${label}!',
+  required: 'Vui lòng điền ${label}!',
   pattern: {
     mismatch: "${name} không hợp lệ!",
   },
@@ -74,7 +74,7 @@ function SignUp() {
         <Input />
       </Form.Item>
       <Form.Item
-        label="Password"
+        label="Mật khẩu"
         name="password"
         rules={[
           {
@@ -88,13 +88,13 @@ function SignUp() {
       </Form.Item>
       <Form.Item
         name="confirm"
-        label="Confirm Password"
+        label="Xác nhận mật khẩu"
         dependencies={['password']}
         hasFeedback
         rules={[
           {
             required: true,
-            message: 'Please confirm your password!',
+            message: 'Vui lòng xác nhận mật khẩu!',
           },
           ({ getFieldValue }) => ({
             validator(_, value) {
@@ -111,11 +111,10 @@ function SignUp() {
       </Form.Item>
       <Form.Item
         name="fullname"
-        label="Full Name"
+        label="Họ tên"
         rules={[
           {
             required: true,
-            message: 'Please input your full name!',
           },
         ]}
         hasFeedback
@@ -124,7 +123,7 @@ function SignUp() {
       </Form.Item>
       <Form.Item
         name="phone"
-        label="Phone Number"
+        label="Số điện thoại"
         rules={[
           {
             required: true,
@@ -141,9 +140,7 @@ function SignUp() {
           span: 13,
         }}
       >
-        <Button type="primary" htmlType="submit">
-          Sign Up
-        </Button>
+        <Button type="primary" htmlType="submit">Đăng ký</Button>
       </Form.Item>
     </Form>
   )

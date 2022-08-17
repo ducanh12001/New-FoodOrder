@@ -24,6 +24,8 @@ header {
 
 .right_area {
     display: flex;
+    align-items: center;
+    justify-content: space-around;
     font-size: 1.125rem;
 }
 
@@ -64,11 +66,29 @@ header {
     transform: translate(-50%, -50%);
 }
 
-.content {
+.menu-icon {
+    margin-right: 10px;
+}
+
+.right_area .dropdown {
+    cursor: pointer;
+}
+
+.right_area .dropdown .username {
+    font-weight: bold;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    max-width: 110px;
+    float: left;
+    overflow: hidden;
+    font-size: 15px;
+}
+
+.content-container {
     padding: 1.875rem;
 }
 
-.content .title {
+.content-container .title {
     font-size: 1.75rem;
     font-weight: 900;
     margin-bottom: 1.25rem;
@@ -269,7 +289,7 @@ header {
 }
 
 .shopping-cart .payBtn:hover {
-    background-color: #d46b08;
+    background-color: #fd9e45;
 }
 
 .item-button {
@@ -331,7 +351,7 @@ header {
 }
 
 .btn-div .payBtn:hover{
-    background-color: #205bb3;
+    background-color: #20b345;
 }
 
 .btn-div .cancelBtn {
@@ -341,7 +361,7 @@ header {
 }
 
 .btn-div .cancelBtn:hover {
-    background-color: rgb(158, 15, 15);
+    background-color: rgb(255, 88, 88);
 }
 
 .ship-container {
@@ -365,27 +385,6 @@ header {
     border-radius: 0.938rem;
     background-color: rgb(19, 67, 77);
     color: white;
-}
-
-/*login*/
-.login-container{
-    max-width: 450px;
-    margin: 50px auto;
-}
-
-.action-btn {
-    text-align: center;
-}
-
-.login-form-button {
-    width: 100%;
-    margin-bottom: 10px;
-}
-
-.login-error {
-    color: red;
-    text-align: center;
-    display: none;
 }
 
 @media screen and (max-width: 480px) {

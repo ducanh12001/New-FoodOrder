@@ -69,7 +69,7 @@ function Product() {
     }, [])
 
     return (
-        <div className="content">
+        <div className="content-container">
             <div className="title">
                 Món ăn
             </div>

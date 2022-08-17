@@ -1,0 +1,19 @@
+.login-container{
+    max-width: 450px;
+    margin: 50px auto;
+}
+
+.action-btn {
+    text-align: center;
+}
+
+.login-form-button {
+    width: 100%;
+    margin-bottom: 10px;
+}
+
+.login-error {
+    color: red;
+    text-align: center;
+    display: none;
+}
