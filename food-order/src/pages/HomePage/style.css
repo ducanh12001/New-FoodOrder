@@ -108,8 +108,8 @@ header {
 }
 
 .type-container .title span {
-    background:#fff; 
-    padding:0 10px; 
+    background: #fff; 
+    padding: 0 10px; 
     font-size: 1.75rem;
     font-weight: 900;
 }
@@ -398,23 +398,6 @@ header {
     background-color: rgb(19, 67, 77);
     color: white;
 }
-
-@media screen and (max-width: 480px) {
-    .card-container {
-        gap: 3%;
-        grid-template-columns: 100%;
-        padding: 0 1.875rem;
-    }
-}
-
-@media screen and (min-width: 481px) and (max-width: 864px) {
-    .card-container {
-        gap: 8%;
-        grid-template-columns: repeat(2, 46%);
-        padding: 0 3.125rem;
-    }
-}
-
 
 /*width: min --> max
 calc(26px + 2 * ((100vw - min) / (max-min+1)))*/
